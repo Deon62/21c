@@ -36,4 +36,23 @@ document.addEventListener('DOMContentLoaded', function() {
             navMenu.classList.remove('active');
         }
     });
+
+    // Collapsible Cards Functionality
+    const benefitCards = document.querySelectorAll('.benefit-card');
+    
+    benefitCards.forEach(card => {
+        card.addEventListener('click', function() {
+            const isActive = this.classList.contains('active');
+            
+            // Close all cards first
+            benefitCards.forEach(otherCard => {
+                otherCard.classList.remove('active');
+            });
+            
+            // If the clicked card wasn't active, open it
+            if (!isActive) {
+                this.classList.add('active');
+            }
+        });
+    });
 });
